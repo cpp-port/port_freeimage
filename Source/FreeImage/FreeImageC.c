@@ -19,4 +19,4 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
+#include "port_freeimage/FreeImage.h"

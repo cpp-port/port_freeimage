@@ -148,8 +148,7 @@ else()
 endif()
 
 
-add_library(${PROJECT_NAME} SHARED ${library_source}
-   include/FreeImage/StricterUtilities.h)
+add_library(${PROJECT_NAME} SHARED ${library_source})
 
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_CONFIG_H)

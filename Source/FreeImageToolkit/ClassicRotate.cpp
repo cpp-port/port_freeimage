@@ -33,8 +33,8 @@
  ============================================================
 */
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 #define RBLOCK		64	// image blocks of RBLOCK*RBLOCK pixels
 

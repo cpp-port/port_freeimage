@@ -21,7 +21,7 @@
 //
 // Use at your own risk!
 // =====================================================================
-#include "config.h"
+#include "port_freeimage/config.h"
 #ifdef _MSC_VER 
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
@@ -33,10 +33,10 @@
 #include <ctype.h>
 #endif // _WIN32
 
-#include "FreeImage.h"
-#include "Utilities.h"
-#include "FreeImageIO.h"
-#include "Plugin.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+#include "port_freeimage/FreeImageIO.h"
+#include "port_freeimage/Plugin.h"
 
 #include "../Metadata/FreeImageTag.h"
 

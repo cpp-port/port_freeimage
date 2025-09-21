@@ -19,11 +19,11 @@
 //
 // Use at your own risk!
 // ==========================================================
-#include "config.h"
+#include "port_freeimage/config.h"
 #include "port_tiff4/tiffiop.h"
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 // ==========================================================
 // Plugin Interface

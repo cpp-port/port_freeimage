@@ -31,8 +31,8 @@
 
 #include "port_tiff4/tiffiop.h"
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 #include "FreeImageTag.h"
 #include "FIRational.h"
 

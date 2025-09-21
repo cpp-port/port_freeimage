@@ -35,8 +35,8 @@
 // * supports symbolic color names
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 // ==========================================================
 // Plugin Interface

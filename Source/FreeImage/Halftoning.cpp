@@ -2,7 +2,7 @@
 // Bitmap conversion routines
 // Thresholding and halftoning functions
 // Design and implementation by
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 // - Dennis Lim (dlkj@users.sourceforge.net)
 // - Thomas Chmielewski (Chmielewski.Thomas@oce.de)
 //
@@ -23,8 +23,8 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 #ifdef ANDROID
 #include <stdlib.h>
 #endif

@@ -21,7 +21,7 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "config.h"
+#include "port_freeimage/config.h"
 
 extern "C" {
 //#define XMD_H
@@ -29,16 +29,30 @@ extern "C" {
 #include <setjmp.h>
 //#include <stddef.h>
 //#include <stdio.h>
+//#include "port_freeimage/port_jpeg/jinclude.h"
+//#include "port_freeimage/port_jpeg/jpeglib.h"
+//#include "port_freeimage/port_jpeg/jerror.h"
+//#include "port_freeimage/port_jpeg/transupp.h"
+#if defined(USE_PORT_JPEG)
+//#define XMD_H
+#undef FAR
 #define JPEG_INTERNALS
 #include "port_jpeg/jinclude.h"
 #include "port_jpeg/jpeglib.h"
 #include "port_jpeg/jerror.h"
 #include "port_jpeg/transupp.h"
+#else
+#include <stdlib.h>
+#include <stdio.h>
+#include <jpeglib.h>
+#include <jerror.h>
+#endif
+
 }
 
-#include "FreeImage.h"
-#include "StricterUtilities.h"
-#include "FreeImageIO.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/StricterUtilities.h"
+#include "port_freeimage/FreeImageIO.h"
 
 // ----------------------------------------------------------
 //   Source manager & Destination manager setup

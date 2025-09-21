@@ -3,7 +3,7 @@
 //
 // Design and implementation by
 // - Floris van den Berg (flvdberg@wxs.nl)
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 // - Jani Kajala (janik@remedy.fi)
 // - Karl-Heinz Bussian (khbussian@moss.de)
 // - Carsten Klein (cklein05@users.sourceforge.net)
@@ -23,8 +23,8 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 // ----------------------------------------------------------
 //  internal conversions X to 8 bits

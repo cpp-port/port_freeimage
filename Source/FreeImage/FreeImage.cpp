@@ -20,14 +20,14 @@
 //
 // Use at your own risk!
 // ==========================================================
-#include "config.h"
+#include "port_freeimage/config.h"
 
 #ifdef _WIN32
 #include <windows.h>
 #endif
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 //----------------------------------------------------------------------
 

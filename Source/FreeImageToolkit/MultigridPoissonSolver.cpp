@@ -22,9 +22,9 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
-#include "ToneMapping.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+#include "port_freeimage/ToneMapping.h"
 
 static const int NPRE	= 1;		// Number of relaxation sweeps before ...
 static const int NPOST	= 1;		// ... and after the coarse-grid correction is computed

@@ -26,7 +26,7 @@
 #ifndef FREEIMAGE_H
 #define FREEIMAGE_H
 
-#include "config.h"
+#include "port_freeimage/config.h"
 
 // Version information ------------------------------------------------------
 

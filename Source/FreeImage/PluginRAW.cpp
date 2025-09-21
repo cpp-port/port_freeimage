@@ -18,11 +18,11 @@
 //
 // Use at your own risk!
 // ==========================================================
-#include "config.h"
+#include "port_freeimage/config.h"
 #include "port_rawlite/libraw.h"
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 #include "../Metadata/FreeImageTag.h"
 
 // ==========================================================

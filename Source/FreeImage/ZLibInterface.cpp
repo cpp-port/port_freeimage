@@ -20,9 +20,9 @@
 // ==========================================================
 
 #include "zlib.h"
-#include "FreeImage.h"
-#include "Utilities.h"
-//#include "zutil.h"	/* must be the last header because of error C3163 in VS2008 (_vsnprintf defined in stdio.h) */
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+//#include "port_freeimage/zutil.h"	/* must be the last header because of error C3163 in VS2008 (_vsnprintf defined in stdio.h) */
 
 /**
 Compresses a source buffer into a target buffer, using the ZLib library.

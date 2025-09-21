@@ -35,13 +35,13 @@
 #undef __unix
 #endif
 
-#include "FreeImage.h"
-#include "Utilities.h"
-#include "../../../port_tiff4/include/port_tiff4/tiffiop.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+#include "port_tiff4/tiffiop.h"
 #include "../Metadata/FreeImageTag.h"
 #include "port_openexr/half.h"
 
-#include "FreeImageIO.h"
+#include "port_freeimage/FreeImageIO.h"
 #include "PSDParser.h"
 
 // --------------------------------------------------------------------------

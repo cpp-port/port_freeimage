@@ -2,7 +2,7 @@
 // Upsampling / downsampling classes
 //
 // Design and implementation by
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 // - Detlev Vendt (detlev.vendt@brillit.de)
 // - Carsten Klein (cklein05@users.sourceforge.net)
 //
@@ -24,9 +24,9 @@
 #ifndef _RESIZE_H_
 #define _RESIZE_H_
 
-#include "FreeImage.h"
-#include "Utilities.h"
-#include "Filters.h" 
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+#include "Filters.h"
 
 /**
   Filter weights table.<br>

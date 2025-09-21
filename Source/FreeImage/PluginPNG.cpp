@@ -27,8 +27,8 @@
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 #include "../Metadata/FreeImageTag.h"
 
@@ -41,7 +41,7 @@
 // ----------------------------------------------------------
 
 #include "zlib.h"
-#include "png.h"
+#include "port_png/png.h"
 
 // ----------------------------------------------------------
 

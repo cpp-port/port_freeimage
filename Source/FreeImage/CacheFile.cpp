@@ -24,7 +24,7 @@
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif 
 
-#include "CacheFile.h"
+#include "port_freeimage/CacheFile.h"
 
 // ----------------------------------------------------------
 

@@ -37,22 +37,22 @@
 extern "C" {
 #include <setjmp.h>
 
-#if defined(HAS_SYSTEM_JPEG)
-#include <stdlib.h>
-#include <stdio.h>
-#include <jpeglib.h>
-#include <jerror.h>
-#else
+#if defined(USE_PORT_JPEG)
 #define XMD_H
 #undef FAR
 #include "port_jpeg/jinclude.h"
 #include "port_jpeg/jpeglib.h"
 #include "port_jpeg/jerror.h"
+#else
+#include <stdlib.h>
+#include <stdio.h>
+#include <jpeglib.h>
+#include <jerror.h>
 #endif
 }
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 #include "../Metadata/FreeImageTag.h"
 

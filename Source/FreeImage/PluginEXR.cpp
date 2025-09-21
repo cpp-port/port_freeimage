@@ -20,8 +20,8 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 #ifdef _MSC_VER
 // openexr has many problems with MSVC warnings (why not just correct them ?), just ignore one of them

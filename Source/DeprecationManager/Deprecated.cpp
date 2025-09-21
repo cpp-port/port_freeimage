@@ -3,7 +3,7 @@
 //
 // Design and implementation by
 // - Floris van den Berg (flvdberg@wxs.nl)
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 //
 // This file is part of FreeImage 3
 //
@@ -20,7 +20,7 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
+#include "port_freeimage/FreeImage.h"
 
 #include "../DeprecationManager/DeprecationMgr.h"
 

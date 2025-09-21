@@ -24,7 +24,7 @@
 
 #ifndef UTILITIES_H
 #define UTILITIES_H
-#include "config.h"
+#include "port_freeimage/config.h"
 // ==========================================================
 //   Standard includes used by the library
 // ==========================================================

@@ -3,7 +3,7 @@
 //
 // Design and implementation by
 // - Ryan Rubley <ryan@lostreality.org> 
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 //
 // This file is part of FreeImage 3
 //
@@ -20,9 +20,9 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
-#include "FreeImageIO.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
+#include "port_freeimage/FreeImageIO.h"
 
 // =====================================================================
 

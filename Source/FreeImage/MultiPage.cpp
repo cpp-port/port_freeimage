@@ -30,11 +30,11 @@
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
 
-#include "CacheFile.h"
-#include "FreeImageIO.h"
-#include "Plugin.h"
-#include "Utilities.h"
-#include "FreeImage.h"
+#include "port_freeimage/CacheFile.h"
+#include "port_freeimage/FreeImageIO.h"
+#include "port_freeimage/Plugin.h"
+#include "port_freeimage/Utilities.h"
+#include "port_freeimage/FreeImage.h"
 
 // ----------------------------------------------------------
 

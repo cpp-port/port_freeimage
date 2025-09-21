@@ -2,7 +2,7 @@
 // DDS Loader
 //
 // Design and implementation by
-// - Volker Gärtner (volkerg@gmx.at)
+// - Volker Gï¿½rtner (volkerg@gmx.at)
 // - Sherman Wilcox
 //
 // This file is part of FreeImage 3
@@ -20,8 +20,8 @@
 // Use at your own risk!
 // ==========================================================
 
-#include "FreeImage.h"
-#include "Utilities.h"
+#include "port_freeimage/FreeImage.h"
+#include "port_freeimage/Utilities.h"
 
 // ----------------------------------------------------------
 //   Definitions for the DDS format
