@@ -46,6 +46,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdio.h>
 #include <jpeglib.h>
+#include <string.h>
 #include <jerror.h>
 #endif
 
@@ -177,7 +178,7 @@ getCropString(char* crop, int* left, int* top, int* right, int* bottom, int widt
 
    return TRUE;
 }
-
+#if defined(USE_PORT_JPEG)
 static BOOL
 JPEGTransformFromHandle(FreeImageIO* src_io, fi_handle src_handle, FreeImageIO* dst_io, fi_handle dst_handle, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect)
 {
@@ -408,15 +409,20 @@ JPEGTransformFromHandle(FreeImageIO* src_io, fi_handle src_handle, FreeImageIO* 
    return TRUE;
 }
 
+
+#endif
+
+
 // ----------------------------------------------------------
 //   FreeImage interface
 // ----------------------------------------------------------
-
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGTransformFromHandle(FreeImageIO* src_io, fi_handle src_handle, FreeImageIO* dst_io, fi_handle dst_handle, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect)
 {
    return JPEGTransformFromHandle(src_io, src_handle, dst_io, dst_handle, operation, left, top, right, bottom, perfect);
 }
+#endif
 
 static void
 closeStdIO(fi_handle src_handle, fi_handle dst_handle)
@@ -548,7 +554,7 @@ openStdIOU(const wchar_t* src_file, const wchar_t* dst_file, FreeImageIO* dst_io
    return FALSE;
 #endif // _WIN32
 }
-
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGTransform(const char *src_file, const char *dst_file, FREE_IMAGE_JPEG_OPERATION operation, BOOL perfect)
 {
@@ -567,7 +573,7 @@ FreeImage_JPEGTransform(const char *src_file, const char *dst_file, FREE_IMAGE_J
 
    return ret;
 }
-
+#endif
 BOOL DLL_CALLCONV
 FreeImage_JPEGCrop(const char *src_file, const char *dst_file, int left, int top, int right, int bottom)
 {
@@ -586,7 +592,7 @@ FreeImage_JPEGCrop(const char *src_file, const char *dst_file, int left, int top
 
    return ret;
 }
-
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGTransformU(const wchar_t *src_file, const wchar_t *dst_file, FREE_IMAGE_JPEG_OPERATION operation, BOOL perfect)
 {
@@ -605,7 +611,8 @@ FreeImage_JPEGTransformU(const wchar_t *src_file, const wchar_t *dst_file, FREE_
 
    return ret;
 }
-
+#endif
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGCropU(const wchar_t *src_file, const wchar_t *dst_file, int left, int top, int right, int bottom)
 {
@@ -624,7 +631,8 @@ FreeImage_JPEGCropU(const wchar_t *src_file, const wchar_t *dst_file, int left, 
 
    return ret;
 }
-
+#endif
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGTransformCombined(const char *src_file, const char *dst_file, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect)
 {
@@ -643,7 +651,8 @@ FreeImage_JPEGTransformCombined(const char *src_file, const char *dst_file, FREE
 
    return ret;
 }
-
+#endif
+#if defined(USE_PORT_JPEG)
 BOOL DLL_CALLCONV
 FreeImage_JPEGTransformCombinedU(const wchar_t *src_file, const wchar_t *dst_file, FREE_IMAGE_JPEG_OPERATION operation, int* left, int* top, int* right, int* bottom, BOOL perfect)
 {
@@ -662,7 +671,7 @@ FreeImage_JPEGTransformCombinedU(const wchar_t *src_file, const wchar_t *dst_fil
 
    return ret;
 }
-
+#endif
 // --------------------------------------------------------------------------
 
 static BOOL
