@@ -37,6 +37,7 @@ extern "C" {
 //#define XMD_H
 #undef FAR
 #define JPEG_INTERNALS
+#include <stdlib.h>
 #include "port_jpeg/jinclude.h"
 #include "port_jpeg/jpeglib.h"
 #include "port_jpeg/jerror.h"
