@@ -527,7 +527,7 @@ marker_is_icc(jpeg_saved_marker_ptr marker)
    return FALSE;
 }
 
-#if !defined(HAS_SYSTEM_JPEG)
+#if defined(USE_PORT_JPEG)
 
 // /**
 //   See if there was an ICC profile in the JPEG file being read;
