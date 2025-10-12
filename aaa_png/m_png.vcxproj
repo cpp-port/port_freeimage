@@ -261,12 +261,6 @@ copy "$(__operating_system)third-universal_windows\thirdparty\binary\FreeImage.d
     <ProjectReference Include="..\..\thirdparty\freetype\_m_ca2basefreetype.vcxproj">
       <Project>{af9dfa62-6f0e-47b8-a55b-5ad825571f4f}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\base\m_base.vcxproj">
-      <Project>{5487686f-8a2f-401a-a38e-fda8900e1984}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\aura\m_core.vcxproj">
-      <Project>{420d7aeb-cfca-45de-bb6e-95055df21987}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
