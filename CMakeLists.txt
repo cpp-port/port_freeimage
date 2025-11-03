@@ -141,7 +141,7 @@ list(APPEND library_references
 )
 
 
-if(${LINUX})
+if(${LINUX} OR ${OPENBSD})
     list(APPEND library_references z)
 else()
     list(APPEND library_references zlib)
