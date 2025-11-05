@@ -34,28 +34,30 @@
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
 
-extern "C" {
-#include <setjmp.h>
-
-#if defined(USE_PORT_JPEG)
-#define XMD_H
-#undef FAR
-#include "port_jpeg/jinclude.h"
-#include "port_jpeg/jpeglib.h"
-#include "port_jpeg/jerror.h"
-#else
-#include <stdlib.h>
-#include <stdio.h>
-#include <jpeglib.h>
-#include <jerror.h>
-#endif
-}
 
 #include "port_freeimage/FreeImage.h"
 #include "port_freeimage/Utilities.h"
 
 #include "../Metadata/FreeImageTag.h"
 
+extern "C" {
+#include <setjmp.h>
+
+#if FREEIMAGE_USE_SYSTEM_JPEG
+#include <stdlib.h>
+#include <stdio.h>
+#include <jpeglib.h>
+#include <jerror.h>
+#else
+#define XMD_H
+#undef FAR
+#undef TRUE
+#undef FALSE
+#include "port_jpeg/jinclude.h"
+#include "port_jpeg/jpeglib.h"
+#include "port_jpeg/jerror.h"
+#endif
+}
 
 // ==========================================================
 // Plugin Interface
@@ -527,7 +529,7 @@ marker_is_icc(jpeg_saved_marker_ptr marker)
    return FALSE;
 }
 
-#if defined(USE_PORT_JPEG)
+#if !FREEIMAGE_USE_SYSTEM_JPEG
 
 // /**
 //   See if there was an ICC profile in the JPEG file being read;
@@ -1651,15 +1653,15 @@ Save(FreeImageIO *io, FIBITMAP *dib, fi_handle handle, int page, int flags, void
          // thumbnail support (JFIF 1.02 extension markers)
          if(FreeImage_GetThumbnail(dib) != NULL)
          {
-            cinfo.write_JFIF_header = 1; //<### force it, though when color is CMYK it will be incorrect
+            cinfo.write_JFIF_header = TRUE; //<### force it, though when color is CMYK it will be incorrect
             cinfo.JFIF_minor_version = 2;
          }
 
          // baseline JPEG support
          if ((flags & JPEG_BASELINE) ==  JPEG_BASELINE)
          {
-            cinfo.write_JFIF_header = 0;	// No marker for non-JFIF colorspaces
-            cinfo.write_Adobe_marker = 0;	// write no Adobe marker by default
+            cinfo.write_JFIF_header = FALSE;	// No marker for non-JFIF colorspaces
+            cinfo.write_Adobe_marker = FALSE;	// write no Adobe marker by default
          }
 
          // set subsampling options if required

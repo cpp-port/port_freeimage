@@ -122,10 +122,12 @@ list(APPEND library_source
 )
 
 
-if(${HAS_SYSTEM_JPEG})
+if(${USE_SYSTEM_JPEG})
     set(jpeg_library jpeg)
+    message(STATUS "port_freeimage using system jpeg")
 else()
     set(jpeg_library port_jpeg)
+    message(STATUS "port_freeimage using port_jpeg")
 endif()
 
 
@@ -158,6 +160,13 @@ if(MSVC)
     target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_EXPORTS)
     list(APPEND library_references Windowscodecs)
 endif()
+
+if(${USE_SYSTEM_JPEG})
+target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=1)
+else()
+target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=0)
+endif()
+
 
 target_link_libraries(${PROJECT_NAME} ${library_references})
 
