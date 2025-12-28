@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(port_freeimage CXX)
 
 
-if (MSVC)
+if(${WIN32})
     add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
     add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR})

@@ -106,9 +106,9 @@ set(pngstest_sources
 )
 # SOME NEEDED DEFINITIONS
 
-if (MSVC)
+if(${WIN32})
     add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
-endif (MSVC)
+endif(${WIN32})
 
 if (PNG_DEBUG)
     add_definitions(-DPNG_DEBUG)
@@ -144,7 +144,7 @@ endif()
 
 add_library(${PROJECT_NAME} SHARED ${libpng_sources})
 set(PNG_LIB_TARGETS ${PROJECT_NAME})
-#if (MSVC)
+#if(${WIN32})
 #    # msvc does not append 'lib' - do it here to have consistent name
 #    set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "lib")
 #    set_target_properties(${PROJECT_NAME} PROPERTIES IMPORT_PREFIX "lib")
@@ -157,7 +157,7 @@ target_link_libraries(${PROJECT_NAME} ${ZLIB_LIBRARY} ${M_LIBRARY})
 set(PNG_LIB_NAME_STATIC static_${PROJECT_NAME})
 add_library(${PNG_LIB_NAME_STATIC} STATIC ${libpng_sources})
 list(APPEND PNG_LIB_TARGETS ${PNG_LIB_NAME_STATIC})
-if (MSVC)
+if(${WIN32})
     # msvc does not append 'lib' - do it here to have consistent name
     #set_target_properties(${PNG_LIB_NAME_STATIC} PROPERTIES PREFIX "lib")
 endif ()
@@ -175,7 +175,7 @@ if (PNG_SHARED AND WIN32)
 endif ()
 
 
-if (MSVC)
+if(${WIN32})
 
     set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON )
     target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
