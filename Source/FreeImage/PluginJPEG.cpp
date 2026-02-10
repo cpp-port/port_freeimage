@@ -27,9 +27,6 @@
 // ==========================================================
 
 
-#include "port_jpeg/config.h"
-
-
 #ifdef _MSC_VER
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
@@ -53,6 +50,7 @@ extern "C" {
 #undef FAR
 #undef TRUE
 #undef FALSE
+#include "port_jpeg/config.h"
 #include "port_jpeg/jinclude.h"
 #include "port_jpeg/jpeglib.h"
 #include "port_jpeg/jerror.h"

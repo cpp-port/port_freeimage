@@ -162,8 +162,10 @@ if(MSVC)
 endif()
 
 if(${USE_SYSTEM_JPEG})
+message(STATUS "Setting FREEIMAGE_USE_SYSTEM_JPEG 1")
 target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=1)
 else()
+message(STATUS "Setting FREEIMAGE_USE_SYSTEM_JPEG 0")
 target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=0)
 endif()
 
