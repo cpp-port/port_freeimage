@@ -343,7 +343,7 @@ BOOL fipWinImage::captureWindow(HWND hWndApplicationWindow, HWND hWndSelectedWin
 	// Prepare the DCs
 	HDC dstDC = GetDC(NULL);
     HDC srcDC = GetWindowDC(hWndSelectedWindow); // full window (GetDC(hWndSelectedWindow) = clientarea)
-	HDC memDC = CreateCompatibleDC(dstDC);
+	HDC memDC = create_compatible_graphics(dstDC);
 	
 	// Copy the screen to the bitmap
 	HBITMAP bm = CreateCompatibleBitmap(dstDC, width, height);
