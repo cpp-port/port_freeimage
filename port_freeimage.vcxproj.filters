@@ -362,4 +362,9 @@
     <Text Include="Todo.txt" />
     <Text Include="Whatsnew.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="port_freeimage.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
