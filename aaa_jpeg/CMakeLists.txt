@@ -94,7 +94,7 @@ list(APPEND library_source
 
 )
 
-if(${LINUX} OR ${ANDROID} OR ${WIN32})
+if(${LINUX} OR ${__ANDROID__} OR ${WIN32})
     list(APPEND library_source
         jmemansi.c
     )

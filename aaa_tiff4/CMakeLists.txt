@@ -84,7 +84,7 @@ if(${WIN32})
 endif()
 
 
-if(${LINUX} OR ${ANDROID} OR ${__BSD__})
+if(${LINUX} OR ${__ANDROID__} OR ${__BSD__})
     list(APPEND library_source
             tif_unix.c
     )
@@ -106,7 +106,7 @@ if(MSVC)
     target_link_options(${PROJECT_NAME} PRIVATE "/DEFAULTLIB:msvcrt$<$<CONFIG:Debug>:d>")
     target_link_options(${PROJECT_NAME} PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/${PROJECT_NAME}.lib")
     #    target_link_options(${PROJECT_NAME} PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.def")
-elseif(${LINUX} OR ${ANDROID} OR ${__BSD__})
+elseif(${LINUX} OR ${__ANDROID__} OR ${__BSD__})
 
 endif()
 

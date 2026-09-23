@@ -143,7 +143,7 @@ list(APPEND library_references
 )
 
 
-if(${LINUX} OR ${OPENBSD})
+if(${LINUX} OR ${__BSD__} OR ${__ANDROID__})
     list(APPEND library_references z)
 else()
     list(APPEND library_references zlib)
