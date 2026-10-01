@@ -167,6 +167,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=1)
 else()
 message(STATUS "Setting FREEIMAGE_USE_SYSTEM_JPEG 0")
 target_compile_definitions(${PROJECT_NAME} PRIVATE FREEIMAGE_USE_SYSTEM_JPEG=0)
+target_compile_definitions(${PROJECT_NAME} PRIVATE USE_PORT_JPEG)
 endif()
 
 
