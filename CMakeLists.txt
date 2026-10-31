@@ -122,8 +122,27 @@ list(APPEND library_source
 )
 
 
-if(${USE_SYSTEM_JPEG})
-    set(jpeg_library jpeg)
+option(FREEIMAGE_USE_SYSTEM_LIBRARIES "Prefer installed FreeImage codecs" ${__SUNOS__})
+if(FREEIMAGE_USE_SYSTEM_LIBRARIES)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(FI_JPEG QUIET IMPORTED_TARGET libjpeg)
+    pkg_check_modules(FI_PNG QUIET IMPORTED_TARGET libpng16)
+    pkg_check_modules(FI_OPENJPEG QUIET IMPORTED_TARGET libopenjp2)
+    pkg_check_modules(FI_WEBP QUIET IMPORTED_TARGET libwebp libwebpmux)
+endif()
+
+# JPEG transforms and bundled TIFF still use the port_jpeg extensions.
+# Keep the prefixed bundled JPEG by default, preserving explicit overrides.
+if(NOT DEFINED USE_SYSTEM_JPEG)
+    set(USE_SYSTEM_JPEG OFF)
+endif()
+if(USE_SYSTEM_JPEG)
+    if(TARGET PkgConfig::FI_JPEG)
+        set(jpeg_library PkgConfig::FI_JPEG)
+    else()
+        find_package(JPEG REQUIRED)
+        set(jpeg_library JPEG::JPEG)
+    endif()
     message(STATUS "port_freeimage using system jpeg")
 else()
     set(jpeg_library port_jpeg)
@@ -135,12 +154,27 @@ list(APPEND library_references
         ${jpeg_library}
         port_jxr
         port_openexr
-        port_openjpeg
-        port_png
         port_tiff4
         port_rawlite
-        port_webp
 )
+
+foreach(codec IN ITEMS PNG OPENJPEG WEBP)
+    if(codec STREQUAL "PNG")
+        set(bundled_codec port_png)
+    elseif(codec STREQUAL "OPENJPEG")
+        set(bundled_codec port_openjpeg)
+    else()
+        set(bundled_codec port_webp)
+    endif()
+    if(FREEIMAGE_USE_SYSTEM_LIBRARIES AND FI_${codec}_FOUND)
+        list(APPEND library_references PkgConfig::FI_${codec})
+        list(APPEND freeimage_system_definitions FREEIMAGE_USE_SYSTEM_${codec}=1)
+        message(STATUS "port_freeimage using system ${codec}")
+    else()
+        list(APPEND library_references ${bundled_codec})
+        message(STATUS "port_freeimage using bundled ${codec}")
+    endif()
+endforeach()
 
 
 if(${LINUX} OR ${__BSD__} OR ${__ANDROID__} OR ${__SUNOS__} OR ${__HAIKU__})
@@ -154,6 +188,7 @@ add_library(${PROJECT_NAME} SHARED ${library_source})
 
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_CONFIG_H)
+target_compile_definitions(${PROJECT_NAME} PRIVATE ${freeimage_system_definitions})
 
 if(MSVC)
     target_compile_definitions(${PROJECT_NAME} PRIVATE OPENEXR_DLL)

@@ -21,7 +21,11 @@
 
 #include "port_freeimage/FreeImage.h"
 #include "port_freeimage/Utilities.h"
+#if FREEIMAGE_USE_SYSTEM_OPENJPEG
+#include <openjpeg.h>
+#else
 #include "port_openjpeg/openjpeg.h"
+#endif
 #include "J2KHelper.h"
 
 // ==========================================================

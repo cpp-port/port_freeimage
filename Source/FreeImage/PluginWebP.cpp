@@ -24,10 +24,16 @@
 
 #include "../Metadata/FreeImageTag.h"
 
+#if FREEIMAGE_USE_SYSTEM_WEBP
+#include <webp/decode.h>
+#include <webp/encode.h>
+#include <webp/mux.h>
+#else
 #include "port_webp/webp/decode.h"
 #include "port_webp/webp/encode.h"
 #include "port_webp/enc/vp8enci.h"
 #include "port_webp/webp/mux.h"
+#endif
 
 // ==========================================================
 // Plugin Interface

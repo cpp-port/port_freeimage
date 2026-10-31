@@ -41,7 +41,11 @@
 // ----------------------------------------------------------
 
 #include "zlib.h"
+#if FREEIMAGE_USE_SYSTEM_PNG
+#include <png.h>
+#else
 #include "port_png/png.h"
+#endif
 
 // ----------------------------------------------------------
 
