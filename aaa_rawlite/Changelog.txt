@@ -1352,7 +1352,7 @@ API changes:
 
 2009-01-14 Alex Tutubalin <lexa@lexa.ru>
            * Black mask extraction supported for all files with bayer data
-            (one component per pixel). Black mask data not avaliable
+            (one component per pixel). Black mask data not available
             for multi-component data (Foveon, Canon sRAW, Sinar 4-shot,
             Kodak YCC/YRGB).
 
