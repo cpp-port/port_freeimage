@@ -1602,8 +1602,12 @@ Save(FreeImageIO *io, FIBITMAP *dib, fi_handle handle, int page, int flags, void
          }
 
          // Now we can initialize the JPEG compression object
+#ifdef USE_PORT_JPEG
          INT_EQUALITY_DEBUG_CALL(intequalitydebug, 64);
          jpeg_create_compress2(&cinfo, &intequalitydebug);
+#else
+         jpeg_create_compress(&cinfo);
+#endif
 
          // Step 2: specify data destination (eg, a file)
 

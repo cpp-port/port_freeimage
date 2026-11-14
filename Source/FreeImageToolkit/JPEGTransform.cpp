@@ -274,8 +274,12 @@ JPEGTransformFromHandle(FreeImageIO* src_io, fi_handle src_handle, FreeImageIO* 
       dstinfo.err->output_message = ls_jpeg_output_message;
       
       
+#ifdef USE_PORT_JPEG
       INT_EQUALITY_DEBUG_CALL(intequalitydebug, 64);
       jpeg_create_compress2(&dstinfo, &intequalitydebug);
+#else
+      jpeg_create_compress(&dstinfo);
+#endif
 
       // Specify data source for decompression
       jpeg_freeimage_src(&srcinfo, src_handle, src_io);
